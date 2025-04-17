@@ -2,7 +2,9 @@ import os
 
 from chest_classifier.constants import *
 from chest_classifier.utils.common import read_yaml, create_dirs
-from chest_classifier.entity.config_entity import (DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig)
+from chest_classifier.entity.config_entity import (DataIngestionConfig, EvaluationConfig, PrepareBaseModelConfig, TrainingConfig)
+
+remote_server_uri = "https://dagshub.com/najmussakib/chest-cancer-classification.mlflow"
 
 class ConfigurationManager:
     def __init__(
@@ -67,3 +69,15 @@ class ConfigurationManager:
         )
 
         return training_config
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model="artifacts/training/model.h5",
+            training_data="artifacts/data_ingestion/Chest-CT-Scan-data",
+            mlflow_uri=remote_server_uri,
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+
+        return eval_config

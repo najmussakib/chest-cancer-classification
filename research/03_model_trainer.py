@@ -12,7 +12,7 @@ import tensorflow as tf
 import time
 
 print(os.getcwd())
-os.chdir("../")#
+os.chdir("../")
 print(os.getcwd())
 
 @dataclass(frozen=True)
@@ -114,13 +114,9 @@ class Training:
             **dataflow_kwargs
         )
 
-
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
-
-
-
 
     def train(self):
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
