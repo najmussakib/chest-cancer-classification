@@ -175,3 +175,7 @@ cython_debug/
 
 artifacts/*
 mlruns/*
+
+.dvc
+dvc.lock
+.dvcignore

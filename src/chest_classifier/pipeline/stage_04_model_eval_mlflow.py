@@ -19,7 +19,7 @@ class EvaluationPipeline:
 if __name__ == "__main__":
     try:
         logger.info(f">>>>>> Stage: {STAGE_NAME} started <<<<<<<")
-        obj = ConfigurationManager()
+        obj = EvaluationPipeline()
         obj.main()
         logger.info(f">>>>>>> Stage: {STAGE_NAME} completed <<<<<<< \n\nx===============x")
     except Exception as e:
