@@ -16,7 +16,7 @@ CORS(app)
 class ClientApp:
     def __init__(self):
         self.image_name = "inputImage.jpg"
-        self.classifier = InferencePipeline(self.image)
+        self.classifier = InferencePipeline(self.image_name)
 
 # Default route: main page
 @app.route("/", methods=['GET'])

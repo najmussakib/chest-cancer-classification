@@ -10,7 +10,7 @@ class InferencePipeline:
 
     def predict(self):
         #model = load_model("artifacts/training/model.h5") # Local
-        model = load_model(os.path.join("model", "model.h5")) # Deployment
+        model = load_model(os.path.join("weights", "model.h5")) # Deployment
 
         img = self.image
         test_image = image.load_img(img, target_size = (224, 224))
